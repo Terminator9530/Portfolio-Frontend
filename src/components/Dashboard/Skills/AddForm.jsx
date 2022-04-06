@@ -3,10 +3,10 @@ import {useState} from 'react';
 import { TextField } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import SaveIcon from '@mui/icons-material/Save';
-import axios from 'axios';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
+import {addSkillsAPI} from '../../../actions/api/skills';
 
 function AddForm(props){
 
@@ -34,15 +34,11 @@ function AddForm(props){
             name : data.get("dashboard-skill-name"),
             rating : data.get("dashboard-skill-rating")
         };
-        axios.post('http://localhost:4000/skills/add',formData)
-        .then(function(response){
+        Promise.resolve(addSkillsAPI(formData)).then((response)=>{
             setLoading(false);
             simulateDoneButton(response.status === 200 ? "success" : "error");
             setNameTextField("");
             setRatingTextField("");
-        })
-        .catch(function(error){
-            console.log(error);
         });
     }
 

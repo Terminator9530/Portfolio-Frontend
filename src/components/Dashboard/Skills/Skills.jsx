@@ -1,28 +1,23 @@
 import {connect} from 'react-redux';
 import {useEffect, useState} from 'react';
-import axios from 'axios';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddForm from './AddForm';
 import EditForm from './EditForm';
+import {getSkillsAPI,deleteSkillsAPI} from '../../../actions/api/skills';
 
 function Skills(props){
-    console.log(props);
     let [hiddenForm,setHiddenForm] = useState(undefined);
 
     function handleSkillDelete(e){
         let id = e.target.parentElement.id.split(" ")[1];
 
-        axios.post('http://localhost:4000/skills/delete',{id : id})
-        .then(function(response){
+        Promise.resolve(deleteSkillsAPI(id)).then((response)=>{
             if(response.data.status == 200){
                 props.syncSkillsArray();
             }
-        })
-        .catch(function(error){
-            console.log(error);
         });
     }
 
@@ -79,17 +74,8 @@ function mapStateToProps(state,ownProps){
 function mapDispatchToProps(dispatch){
     return {
         syncSkillsArray : ()=>{
-            axios.get('http://localhost:4000/skills')
-            .then(function (response) {
-                let skills = response.data;
-                let results = [];
-                skills.forEach(skill => {
-                    results.push({name : skill.name,rating : skill.rating,id : skill._id});
-                });
-                dispatch({type : "SYNC_SKILLS_ARRAY",skills : results});
-            })
-            .catch(function (error) {
-                console.log(error);
+            Promise.resolve(getSkillsAPI()).then((response)=>{
+                dispatch({type : "SYNC_SKILLS_ARRAY",skills : response});
             });
         },
         changeLoadingState : ()=>{

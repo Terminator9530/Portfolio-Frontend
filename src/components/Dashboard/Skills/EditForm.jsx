@@ -2,12 +2,12 @@ import {useEffect, useState} from 'react';
 import { TextField } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import SaveIcon from '@mui/icons-material/Save';
-import axios from 'axios';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import {connect} from 'react-redux';
+import {updateSkillsAPI} from '../../../actions/api/skills';
 
 function EditForm(props){
 
@@ -41,15 +41,11 @@ function EditForm(props){
             rating : data.get("dashboard-skill-rating"),
             id : data.get("dashboard-skill-id")
         };
-        axios.post('http://localhost:4000/skills/update',formData)
-        .then(function(response){
+        Promise.resolve(updateSkillsAPI(formData)).then((response)=>{
             setLoading(false);
             simulateDoneButton(response.status === 200 ? "success" : "error");
             setNameTextField("");
             setRatingTextField("");
-        })
-        .catch(function(error){
-            console.log(error);
         });
     }
 
