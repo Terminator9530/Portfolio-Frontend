@@ -4,8 +4,7 @@ import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddForm from './AddForm';
-import EditForm from './EditForm';
+import AddOrEditForm from './AddOrEditForm';
 import {getSkillsAPI,deleteSkillsAPI} from '../../../actions/api/skills';
 
 function Skills(props){
@@ -41,9 +40,7 @@ function Skills(props){
 
     return (
         <div className = "container">
-            {
-                hiddenForm ? <EditForm hiddenForm = {hiddenForm} showAddForm = {showAddForm} /> : <AddForm />
-            }
+            <AddOrEditForm hiddenForm = {hiddenForm} showAddForm = {showAddForm} />
             <Stack direction="row" spacing={1}>
             {
                 props.SkillReducer.skills.map((skill,index)=>{
