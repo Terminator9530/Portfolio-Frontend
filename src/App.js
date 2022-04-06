@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
 import Login from './components/Login';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import Cookies from 'js-cookie';

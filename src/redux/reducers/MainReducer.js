@@ -1,8 +1,10 @@
 import LoginReducer from './LoginReducer';
+import SkillReducer from './SkillReducer';
 import { combineReducers } from 'redux';
 
 const MainReducer = combineReducers({
-    LoginReducer
+    LoginReducer,
+    SkillReducer
 });
 
 export default MainReducer;
