@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import {connect} from 'react-redux';
 import {updateSkillsAPI,addSkillsAPI} from '../../../actions/api/skills';
+import { Stack } from '@mui/material';
 
 function AddOrEditForm(props){
 
@@ -20,6 +21,9 @@ function AddOrEditForm(props){
         if(props.hiddenForm){
             setNameTextField(props.hiddenForm.name);
             setRatingTextField(props.hiddenForm.rating);
+        } else {
+            setNameTextField("");
+            setRatingTextField("");
         }
     },[props.hiddenForm]);
 
@@ -101,25 +105,30 @@ function AddOrEditForm(props){
     }
 
     return (
-        <Box component="form" onSubmit = {handleSubmit}>
-            <TextField name="dashboard-skill-name" label="Skill Name" variant="outlined" margin="dense" value = {nameTextField} onChange = {handleNameChange} />
-            <TextField name="dashboard-skill-rating" label="Skill Rating" variant="outlined" margin="dense" value = {ratingTextField} onChange = {handleRatingChange} />
-            {props.hiddenForm ? <input type="hidden" name="dashboard-skill-id" value = {props.hiddenForm.id} /> : ""}
+        <Box component="form" onSubmit = {handleSubmit} className = "container">
+            {props.hiddenForm ? <h3>Edit Form</h3> : <h3>Add Form</h3>}
+            <Stack justifyContent="center" alignItems="center" direction = {{ xs: 'column', sm: 'row' }} spacing={1}>
+                <TextField name="dashboard-skill-name" label="Skill Name" variant="outlined" value = {nameTextField} onChange = {handleNameChange} />
+                <TextField name="dashboard-skill-rating" label="Skill Rating" variant="outlined" value = {ratingTextField} onChange = {handleRatingChange} />
+                {props.hiddenForm ? <input type="hidden" name="dashboard-skill-id" value = {props.hiddenForm.id} /> : ""}
+            </Stack>
             <br />
-            <LoadingButton
-                size="small"
-                color={findButtonColor()}
-                type="submit"
-                loading={loading}
-                loadingPosition="start"
-                startIcon={findButtonIcon()}
-                variant="contained"
-            >
-                Save
-            </LoadingButton>
-            {props.hiddenForm ? <Button variant="contained" size="small" onClick = {showAddForm}>
-                Add Form
-            </Button> : ""}
+            <Stack justifyContent="center" alignItems="center" direction = {{ xs: 'column', sm: 'row' }} spacing={1}>
+                <LoadingButton
+                    size="small"
+                    color={findButtonColor()}
+                    type="submit"
+                    loading={loading}
+                    loadingPosition="start"
+                    startIcon={findButtonIcon()}
+                    variant="contained"
+                >
+                    Save
+                </LoadingButton>
+                {props.hiddenForm ? <Button variant="contained" size="small" onClick = {showAddForm}>
+                    Add Form
+                </Button> : ""}
+            </Stack>
 
         </Box>
     )

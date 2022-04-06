@@ -14,7 +14,7 @@ function Skills(props){
         let id = e.target.parentElement.id.split(" ")[1];
 
         Promise.resolve(deleteSkillsAPI(id)).then((response)=>{
-            if(response.data.status == 200){
+            if(response.data.status === 200){
                 props.syncSkillsArray();
             }
         });
@@ -39,9 +39,10 @@ function Skills(props){
     },[props.SkillReducer.loading]);
 
     return (
-        <div className = "container">
+        <div className = "skills-container box-shadow">
+            <p className="section-heading">Skills</p>
             <AddOrEditForm hiddenForm = {hiddenForm} showAddForm = {showAddForm} />
-            <Stack direction="row" spacing={1}>
+            <Stack className = "container" justifyContent="center" alignItems="center" direction = {{ xs: 'column', sm: 'row' }} spacing={1}>
             {
                 props.SkillReducer.skills.map((skill,index)=>{
                     return (
@@ -52,6 +53,7 @@ function Skills(props){
                             onDelete={handleSkillDelete} 
                             onClick = {handleChipClick}
                             id = {"chip " + skill.id}
+                            key = {skill.id}
                         />           
                     )
                 })
