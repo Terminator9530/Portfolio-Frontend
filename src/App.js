@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import Homepage from './components/Homepage/Homepage';
 
 axios.defaults.withCredentials = true;
 
@@ -14,6 +15,7 @@ function App(props) {
     <div className="App">
       <Routes>
         <Route path = "/admin" element = {isLoggedIn ? <Dashboard /> : <Login />} />
+        <Route path = "/" element = {<Homepage />} />
       </Routes>
     </div>
   );

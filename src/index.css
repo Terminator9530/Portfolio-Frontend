@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color:crimson;
+  box-sizing: border-box;
 }
 
 code {
@@ -20,6 +21,7 @@ code {
 
 .skills-container{
   margin: 2px;
+  padding: 5px;
   border-radius: 5px;
   background-color:beige;
 }
@@ -37,4 +39,53 @@ code {
 
 .box-shadow{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.progress-bar-container{
+  padding : 2px;
+  width : 50%;
+  height : 15px;
+  background-color : rgb(225, 219, 219);
+  border-radius: 10px;
+  border: 2px solid rgb(225, 219, 219);
+  position: relative;
+  margin: 3px auto;
+}
+
+.progress-bar-fill{
+  height: inherit;
+  border-radius: inherit;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.skill{
+  padding: 5px;
+  margin: 10px;
+}
+
+.skills-section{
+  background-color: rgb(243, 239, 239);
+}
+
+hr{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.homepage-section-header{
+  color: #ab0ef3;
+  font-family: Girassol,cursive;
+  font-size: 6rem;
+  margin: 0;
+}
+
+.homepage-sub-section-header{
+  margin:10px 20%;
+  font-size:30px;
+  color:#ab0ef3;
+  font-family:Aladin,cursive;
 }
