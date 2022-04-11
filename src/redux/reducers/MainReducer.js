@@ -1,14 +1,14 @@
 import LoginReducer from './LoginReducer';
-import SkillReducer from './Dashboard/SkillReducer';
-import LanguageReducer from './Dashboard/LanguageReducer';
-import SkillReducerHomepage from './Homepage/SkillReducer';
+import SkillReducer from './SkillReducer';
+import LanguageReducer from './LanguageReducer';
+import ContactReducer from './ContactReducer';
 import { combineReducers } from 'redux';
 
 const MainReducer = combineReducers({
     LoginReducer,
     SkillReducer,
-    SkillReducerHomepage,
-    LanguageReducer
+    LanguageReducer,
+    ContactReducer
 });
 
 export default MainReducer;

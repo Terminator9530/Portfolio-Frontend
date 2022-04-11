@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import Skills from './Skills/Skills.jsx';
 import Languages from './Languages/Languages.jsx';
+import Contacts from './Contacts/Contacts.jsx';
 import { Container } from '@mui/material';
 import "./Dashboard.css";
 
@@ -9,6 +10,7 @@ function Dashboard(props){
         <Container>
             <Skills />
             <Languages />
+            <Contacts />
         </Container>
     )
 }
