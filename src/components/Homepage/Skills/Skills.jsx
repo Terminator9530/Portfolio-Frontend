@@ -10,22 +10,18 @@ function Skills(props){
     },[]);
 
     return (
-        <div className="skills-section">
-            <center><p className='homepage-section-header'>Profile</p></center>
-            <hr style={{"width":"70%","borderColor":"rgba(0,0,0,0.267)"}} />
-            <div>
-                <p className='homepage-sub-section-header'>Coding</p>
-                {
-                    props.SkillReducer.skills.map((skill,index)=>{
-                        return (
-                            <div className='skill'>
-                                <center><span>{skill.name}</span></center>
-                                <Progress rating={skill.rating} /> 
-                            </div>        
-                        )
-                    })
-                }
-            </div>
+        <div>
+            <p className='homepage-sub-section-header'>Coding</p>
+            {
+                props.SkillReducer.skills.map((skill,index)=>{
+                    return (
+                        <div className='skill'>
+                            <center><span>{skill.name}</span></center>
+                            <Progress rating={skill.rating} /> 
+                        </div>        
+                    )
+                })
+            }
         </div>
     )
 }
