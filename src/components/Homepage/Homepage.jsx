@@ -1,15 +1,25 @@
 import {connect} from 'react-redux';
 import Language from './Language/Language';
 import Skills from './Skills/Skills';
+import React from 'react';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
+import Profile from './Profile/Profile';
 
 function Homepage(props){
     return(
-        <div className="skills-section">
-            <center><p className='homepage-section-header'>Profile</p></center>
-            <hr style={{"width":"70%","borderColor":"rgba(0,0,0,0.267)"}} />
-            <Skills />
-            <hr style={{"width":"70%","borderColor":"rgba(0,0,0,0.267)"}} />
-            <Language />
+        <div id="content" style={{"display": "block"}}>
+            <img src="background.jpg" id="headerImg" />
+            <Header />
+            <Profile />
+            <section id="skills">
+                <center><p className='homepage-section-header'>Skills</p></center>
+                <hr className='customHR' />
+                <Skills />
+                <hr className='customHR' />
+                <Language />
+            </section>
+            <Footer />
         </div>
     )
 }

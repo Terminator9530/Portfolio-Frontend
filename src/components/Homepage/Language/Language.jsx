@@ -11,7 +11,7 @@ function Languages(props){
 
     return (
         <div>
-            <p className='homepage-sub-section-header'>Languages</p>
+            <p className='homepage-sub-section-header' style={{"margin":"10px 20%"}}>Languages</p>
             {
                 props.LanguageReducer.languages.map((language,index)=>{
                     return (

@@ -4,7 +4,6 @@ import Languages from './Languages/Languages.jsx';
 import Contacts from './Contacts/Contacts.jsx';
 import Profile from './Profile/Profile.jsx';
 import { Container } from '@mui/material';
-import "./Dashboard.css";
 
 function Dashboard(props){
     return (

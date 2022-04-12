@@ -11,7 +11,7 @@ function Skills(props){
 
     return (
         <div>
-            <p className='homepage-sub-section-header'>Coding</p>
+            <p className='homepage-sub-section-header' style={{"margin":"10px 20%"}}>Coding</p>
             {
                 props.SkillReducer.skills.map((skill,index)=>{
                     return (
