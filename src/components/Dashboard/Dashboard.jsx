@@ -3,6 +3,7 @@ import Skills from './Skills/Skills.jsx';
 import Languages from './Languages/Languages.jsx';
 import Contacts from './Contacts/Contacts.jsx';
 import Profile from './Profile/Profile.jsx';
+import Images from './Images/Images.jsx';
 import { Container } from '@mui/material';
 
 function Dashboard(props){
@@ -12,6 +13,7 @@ function Dashboard(props){
             <Languages />
             <Contacts />
             <Profile />
+            <Images />
         </Container>
     )
 }

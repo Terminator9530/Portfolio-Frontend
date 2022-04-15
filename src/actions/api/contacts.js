@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+let apiUrl = process.env.REACT_APP_BACKEND_API_URL;
+
 function getContactsAPI(){
-    return axios.get('http://localhost:4000/contacts')
+    return axios.get(`${apiUrl}/contacts`)
     .then(function (response) {
         let contacts = response.data;
         let results = [];
@@ -16,7 +18,7 @@ function getContactsAPI(){
 };
 
 function updateContactsAPI(formData){
-    return axios.post('http://localhost:4000/contacts/update',formData)
+    return axios.post(`${apiUrl}/contacts/update`,formData)
     .then(function(response){
         return response;
     })
@@ -26,7 +28,7 @@ function updateContactsAPI(formData){
 }
 
 function addContactsAPI(formData){
-    return axios.post('http://localhost:4000/contacts/add',formData)
+    return axios.post(`${apiUrl}/contacts/add`,formData)
     .then(function(response){
         return response;
     })
@@ -36,7 +38,7 @@ function addContactsAPI(formData){
 }
 
 function deleteContactsAPI(id){
-    return axios.post('http://localhost:4000/contacts/delete',{id : id})
+    return axios.post(`${apiUrl}/contacts/delete`,{id : id})
     .then(function(response){
         return response;
     })

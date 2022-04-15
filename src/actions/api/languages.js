@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+let apiUrl = process.env.REACT_APP_BACKEND_API_URL;
+
 function getLanguagesAPI(){
-    return axios.get('http://localhost:4000/languages')
+    return axios.get(`${apiUrl}/languages`)
     .then(function (response) {
         let languages = response.data;
         let results = [];
@@ -16,7 +18,7 @@ function getLanguagesAPI(){
 };
 
 function updateLanguagesAPI(formData){
-    return axios.post('http://localhost:4000/languages/update',formData)
+    return axios.post(`${apiUrl}/languages/update`,formData)
     .then(function(response){
         return response;
     })
@@ -26,7 +28,7 @@ function updateLanguagesAPI(formData){
 }
 
 function addLanguagesAPI(formData){
-    return axios.post('http://localhost:4000/languages/add',formData)
+    return axios.post(`${apiUrl}/languages/add`,formData)
     .then(function(response){
         return response;
     })
@@ -36,7 +38,7 @@ function addLanguagesAPI(formData){
 }
 
 function deleteLanguagesAPI(id){
-    return axios.post('http://localhost:4000/languages/delete',{id : id})
+    return axios.post(`${apiUrl}/languages/delete`,{id : id})
     .then(function(response){
         return response;
     })

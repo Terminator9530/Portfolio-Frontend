@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+let apiUrl = process.env.REACT_APP_BACKEND_API_URL;
+
 function getProfileAPI(){
-    return axios.get('http://localhost:4000/profile')
+    return axios.get(`${apiUrl}/profile`)
     .then(function (response) {
         let profile = response.data;
         let results = {
@@ -22,7 +24,7 @@ function getProfileAPI(){
 };
 
 function updateProfileAPI(formData){
-    return axios.post('http://localhost:4000/profile/update',formData)
+    return axios.post(`${apiUrl}/profile/update`,formData)
     .then(function(response){
         return response;
     })

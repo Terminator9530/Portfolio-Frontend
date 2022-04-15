@@ -14,6 +14,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 
 const theme = createTheme();
+let apiUrl = process.env.REACT_APP_BACKEND_API_URL;
 
 function Login(props) {
   const handleSubmit = (event) => {
@@ -26,7 +27,7 @@ function Login(props) {
         rememberStatus : data.get('remember-me')
     };
 
-    axios.post('http://localhost:4000/admin', formData)
+    axios.post(`${apiUrl}/admin`, formData)
       .then(function (response) {
           console.log(response);
           if(response.type == "error"){

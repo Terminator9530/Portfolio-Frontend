@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+let apiUrl = process.env.REACT_APP_BACKEND_API_URL;
+
 function getSkillsAPI(){
-    return axios.get('http://localhost:4000/skills')
+    return axios.get(`${apiUrl}/skills`)
     .then(function (response) {
         let skills = response.data;
         let results = [];
@@ -16,7 +18,7 @@ function getSkillsAPI(){
 };
 
 function updateSkillsAPI(formData){
-    return axios.post('http://localhost:4000/skills/update',formData)
+    return axios.post(`${apiUrl}/skills/update`,formData)
     .then(function(response){
         return response;
     })
@@ -26,7 +28,7 @@ function updateSkillsAPI(formData){
 }
 
 function addSkillsAPI(formData){
-    return axios.post('http://localhost:4000/skills/add',formData)
+    return axios.post(`${apiUrl}/skills/add`,formData)
     .then(function(response){
         return response;
     })
@@ -36,7 +38,7 @@ function addSkillsAPI(formData){
 }
 
 function deleteSkillsAPI(id){
-    return axios.post('http://localhost:4000/skills/delete',{id : id})
+    return axios.post(`${apiUrl}/skills/delete`,{id : id})
     .then(function(response){
         return response;
     })
