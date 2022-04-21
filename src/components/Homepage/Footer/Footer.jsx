@@ -46,7 +46,7 @@ function Footer(props){
                         let nameLowerCase = contact.name.toLowerCase();
                         let icon = getIcon(nameLowerCase);
                         return (
-                            <Grid style = {index % 2 == 1 ? {"textAlign" : "end"} : {}} item xs={6}>
+                            <Grid style = {index % 2 == 1 ? {"textAlign" : "end"} : {}} item xs={6} key={contact.id}>
                                 <span className='contactLink'>
                                     <i className={`fa fa-${icon}`}></i>
                                     <a href={contact.link}>{contact.name}</a>

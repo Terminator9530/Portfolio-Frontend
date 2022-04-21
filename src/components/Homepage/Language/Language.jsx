@@ -15,7 +15,7 @@ function Languages(props){
             {
                 props.LanguageReducer.languages.map((language,index)=>{
                     return (
-                        <div className='skill'>
+                        <div className='skill' key={language.id}>
                             <center><span>{language.name}</span></center>
                             <Progress rating={language.rating} /> 
                         </div>        

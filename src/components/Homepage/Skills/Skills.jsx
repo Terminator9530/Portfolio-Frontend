@@ -15,7 +15,7 @@ function Skills(props){
             {
                 props.SkillReducer.skills.map((skill,index)=>{
                     return (
-                        <div className='skill'>
+                        <div className='skill' key={skill.id}>
                             <center><span>{skill.name}</span></center>
                             <Progress rating={skill.rating} /> 
                         </div>        
