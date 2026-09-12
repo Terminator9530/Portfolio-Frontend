@@ -1,0 +1,64 @@
+<header class="navbar-container">
+  <nav class="navbar glass-panel">
+    <!-- Brand / Logo -->
+    <a (click)="scrollTo('hero')" class="brand-badge">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="6" width="20" height="12" rx="6" />
+          <path d="M6 12h4m-2-2v4m7-2h.01m3 0h.01" />
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-primary">RYUK</span>
+        <span class="brand-accent">ARCADE</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <ul class="nav-links">
+      <li><a (click)="scrollTo('hero')" class="nav-link">Spotlight</a></li>
+      <li><a (click)="scrollTo('games')" class="nav-link">Games Vault</a></li>
+      <li><a (click)="scrollTo('engines')" class="nav-link">Tech & Engines</a></li>
+    </ul>
+
+    <!-- Right Controls -->
+    <div class="nav-actions">
+      <div class="status-pill glass-pill">
+        <span class="status-dot"></span>
+        <span class="status-text">{{ gameService.games().length }} Games Ready</span>
+      </div>
+
+      <a href="#games" (click)="scrollTo('games')" class="btn-primary nav-cta">
+        <span>Play Games</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+          <polygon points="5 3 19 12 5 21 5 3" />
+        </svg>
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-toggle glass-pill" (click)="toggleMenu()" aria-label="Toggle Menu">
+        <svg *ngIf="!isMenuOpen" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+        <svg *ngIf="isMenuOpen" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Dropdown -->
+  <div *ngIf="isMenuOpen" class="mobile-menu glass-panel">
+    <a (click)="scrollTo('hero')" class="mobile-link">Spotlight</a>
+    <a (click)="scrollTo('games')" class="mobile-link">Games Vault ({{ gameService.games().length }})</a>
+    <a (click)="scrollTo('engines')" class="mobile-link">Tech & Engines</a>
+    <div class="mobile-cta-wrapper">
+      <a (click)="scrollTo('games')" class="btn-primary full-width">Play Now</a>
+    </div>
+  </div>
+</header>
