@@ -16,8 +16,8 @@ export class GameService {
       badge: 'Real-Time Multiplayer',
       status: 'Live',
       engine: 'Angular 19 · Node.js · Socket.io',
-      releaseYear: '2026',
-      featured: true,
+      releasedDate: '2026-09-12T17:00:00Z',
+      featured: false,
       tags: ['Multiplayer', 'Socket.io', 'Node.js', 'Angular 19', 'Chain Reaction', 'Strategy Grid'],
       description: 'An explosive real-time multiplayer board strategy game. Players take turns placing orbs inside grid cells; when a cell reaches critical mass, it bursts outward in a chain reaction, converting opponent atoms and capturing territory across the live board.'
     },
@@ -31,10 +31,25 @@ export class GameService {
       badge: 'Live Multiplayer',
       status: 'Live',
       engine: 'Angular 19 · Node.js · Socket.io',
-      releaseYear: '2026',
+      releasedDate: '2026-09-12T17:00:00Z',
       featured: false,
       tags: ['Word Puzzle', 'Socket.io', 'Node.js', 'Angular 19', 'Real-Time Sync', 'Leaderboard'],
       description: 'A competitive real-time multiplayer word guessing game. Test your vocabulary against friends with live room lobbies, instant socket-synchronized turns, interactive hints, and dynamic scoreboards powered by Node.js and Socket.io.'
+    },
+    {
+      id: 'scenery-search',
+      name: 'Scenery Search',
+      tagline: 'Uncover hidden clues and solve mysteries across scenic detective landscapes.',
+      image: 'scenery-search.png',
+      link: 'https://scenery-search.vercel.app/',
+      genre: 'Puzzle',
+      badge: 'Hidden Object Mystery',
+      status: 'Live',
+      engine: 'Angular 19',
+      releasedDate: '2026-09-26T09:30:00Z',
+      featured: true,
+      tags: ['Hidden Object', 'Mystery', 'Detective', 'Visual Puzzle', 'Angular 19'],
+      description: 'An engaging hidden object mystery game where sharp observation reveals cleverly concealed clues and artifacts across rich atmospheric scenes. Features interactive scene investigations, timer challenges, and detective puzzle progression built with Angular 19.'
     }
   ];
 
@@ -62,7 +77,7 @@ export class GameService {
         game.name.toLowerCase().includes(query) ||
         game.tagline.toLowerCase().includes(query) ||
         game.tags.some(t => t.toLowerCase().includes(query)) ||
-        game.engine.toLowerCase().includes(query);
+        (game.engine?.toLowerCase().includes(query) ?? false);
 
       return matchesGenre && matchesQuery;
     });

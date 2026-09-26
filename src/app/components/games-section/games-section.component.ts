@@ -30,4 +30,10 @@ export class GamesSectionComponent {
   openGameDetails(game: Game) {
     this.gameService.openModal(game);
   }
+
+  getReleaseYear(dateStr?: string): string {
+    if (!dateStr) return '';
+    const d = new Date(dateStr);
+    return isNaN(d.getTime()) ? dateStr : d.getFullYear().toString();
+  }
 }

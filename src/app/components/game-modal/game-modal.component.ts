@@ -15,4 +15,10 @@ export class GameModalComponent {
   close() {
     this.gameService.closeModal();
   }
+
+  getReleaseYear(dateStr?: string): string {
+    if (!dateStr) return '';
+    const d = new Date(dateStr);
+    return isNaN(d.getTime()) ? dateStr : d.getFullYear().toString();
+  }
 }

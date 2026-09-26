@@ -11,7 +11,8 @@ export interface Game {
   status: 'Live' | 'Beta' | 'Concept';
   description: string;
   tags: string[];
-  engine: string;
-  releaseYear: string;
+  engine?: string;
+  releasedDate: string;
+  releaseYear?: string;
   featured?: boolean;
 }

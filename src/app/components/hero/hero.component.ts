@@ -12,6 +12,7 @@ import { GameService } from '../../services/game.service';
 export class HeroComponent {
   readonly gameService = inject(GameService);
 
+
   scrollToGames() {
     const el = document.getElementById('games');
     if (el) {

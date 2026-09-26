@@ -63,7 +63,7 @@
             <span class="pulse-red"></span>
             <span>SPOTLIGHT TITLE</span>
           </div>
-          <span class="engine-tag glass-pill">{{ game.engine }}</span>
+          <span class="engine-tag glass-pill" *ngIf="game.engine">{{ game.engine }}</span>
         </div>
 
         <div class="preview-media-wrapper">

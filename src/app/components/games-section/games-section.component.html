@@ -94,7 +94,7 @@
           <!-- Genre & Tags -->
           <div class="genre-tag-row">
             <span class="genre-tag">{{ game.genre }}</span>
-            <span class="release-year">{{ game.releaseYear }}</span>
+            <span class="release-year">{{ getReleaseYear(game.releasedDate || game.releaseYear) }}</span>
           </div>
 
           <!-- Card Actions (Play Link, Quick View, Optional Repo Link) -->
