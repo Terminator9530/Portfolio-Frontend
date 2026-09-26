@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameService } from '../../services/game.service';
 
@@ -11,6 +11,11 @@ import { GameService } from '../../services/game.service';
 })
 export class HeroComponent {
   readonly gameService = inject(GameService);
+  readonly isHeroImageLoaded = signal(false);
+
+  onHeroImageLoad() {
+    this.isHeroImageLoaded.set(true);
+  }
 
 
   scrollToGames() {

@@ -187,6 +187,37 @@
   height: 220px;
   overflow: hidden;
   margin-bottom: -1px; /* Overlap to remove any subpixel gap during scaling */
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.card-img-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.skeleton-game-icon {
+  color: var(--neon-cyan);
+  filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.6));
+  animation: pulseGhostIcon 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGhostIcon {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 0.95;
+    transform: scale(1.08);
+  }
 }
 
 .game-img {
@@ -196,7 +227,12 @@
   object-fit: cover;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.loaded {
+    opacity: 1;
+  }
 }
 
 .game-card:hover .game-img {
@@ -373,4 +409,88 @@
 .empty-icon {
   font-size: 3rem;
   opacity: 0.7;
+}
+
+/* Card Content Skeleton Details */
+.skeleton-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.skeleton-bar {
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 26px;
+  border-radius: 8px;
+}
+
+.skeleton-rating {
+  width: 48px;
+  height: 22px;
+  border-radius: 9999px;
+}
+
+.skeleton-text {
+  width: 95%;
+  height: 15px;
+}
+
+.skeleton-text-short {
+  width: 70%;
+  height: 15px;
+}
+
+.skeleton-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skeleton-genre {
+  width: 90px;
+  height: 14px;
+}
+
+.skeleton-year {
+  width: 45px;
+  height: 14px;
+}
+
+.skeleton-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.skeleton-btn {
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.skeleton-btn-play {
+  flex: 1.3;
+}
+
+.skeleton-btn-code {
+  flex: 0.9;
+}
+
+.skeleton-btn-details {
+  flex: 0.9;
+}
+
+.skeleton-genre-pill {
+  width: 76px;
+  height: 34px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }

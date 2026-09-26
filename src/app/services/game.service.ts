@@ -54,10 +54,27 @@ export class GameService {
   ];
 
   // Reactive state using Angular 19 Signals
-  readonly games = signal<Game[]>(this.initialGames);
+  readonly games = signal<Game[]>([]);
+  readonly isLoading = signal<boolean>(true);
   readonly selectedGenre = signal<string>('All');
   readonly searchQuery = signal<string>('');
   readonly activeGameModal = signal<Game | null>(null);
+
+  constructor() {
+    this.fetchGames();
+  }
+
+  /**
+   * Fetches game catalog from backend API.
+   * Ready for HttpClient integration: replace the timeout with http.get<Game[]>('/api/games')
+   */
+  fetchGames() {
+    this.isLoading.set(true);
+    setTimeout(() => {
+      this.games.set(this.initialGames);
+      this.isLoading.set(false);
+    }, 500);
+  }
 
   // Dynamic Genre categories extracted from games
   readonly genres = computed(() => {
@@ -83,9 +100,11 @@ export class GameService {
     });
   });
 
-  // Featured flagship game
-  readonly featuredGame = computed(() => {
-    return this.games().find(g => g.featured) || this.games()[0];
+  // Featured flagship game (safe for empty state during BE fetch)
+  readonly featuredGame = computed<Game | null>(() => {
+    const list = this.games();
+    if (!list || list.length === 0) return null;
+    return list.find(g => g.featured) || list[0] || null;
   });
 
   // Actions
@@ -95,6 +114,10 @@ export class GameService {
 
   setSearch(query: string) {
     this.searchQuery.set(query);
+  }
+
+  setLoading(loading: boolean) {
+    this.isLoading.set(loading);
   }
 
   openModal(game: Game) {

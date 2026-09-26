@@ -1,0 +1,159 @@
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(14, 18, 32, 0.9);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 460px;
+  pointer-events: none;
+  user-select: none;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+.skeleton-media {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skeleton-icon-placeholder {
+  color: var(--neon-cyan);
+  filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.6));
+  animation: pulseGhost 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGhost {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+.skeleton-media-badges {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.skeleton-badge-pill {
+  width: 58px;
+  height: 22px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.skeleton-custom-pill {
+  width: 120px;
+  height: 22px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.skeleton-engine-pill {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 110px;
+  height: 22px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.skeleton-content {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.skeleton-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.skeleton-bar {
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 26px;
+  border-radius: 8px;
+}
+
+.skeleton-rating {
+  width: 48px;
+  height: 22px;
+  border-radius: 9999px;
+}
+
+.skeleton-text {
+  width: 95%;
+  height: 15px;
+}
+
+.skeleton-text-short {
+  width: 70%;
+  height: 15px;
+}
+
+.skeleton-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skeleton-genre {
+  width: 90px;
+  height: 14px;
+}
+
+.skeleton-year {
+  width: 45px;
+  height: 14px;
+}
+
+.skeleton-divider {
+  display: none;
+}
+
+.skeleton-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.skeleton-btn {
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.skeleton-btn-play {
+  flex: 1.3;
+}
+
+.skeleton-btn-code {
+  flex: 0.9;
+}
+
+.skeleton-btn-details {
+  flex: 0.9;
+}

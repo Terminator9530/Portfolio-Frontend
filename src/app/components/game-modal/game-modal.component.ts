@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameService } from '../../services/game.service';
 
@@ -11,9 +11,18 @@ import { GameService } from '../../services/game.service';
 })
 export class GameModalComponent {
   readonly gameService = inject(GameService);
+  readonly loadedImages = signal<Record<string, boolean>>({});
 
   close() {
     this.gameService.closeModal();
+  }
+
+  onImageLoad(id: string) {
+    this.loadedImages.update(prev => ({ ...prev, [id]: true }));
+  }
+
+  isImageLoaded(id: string): boolean {
+    return !!this.loadedImages()[id];
   }
 
   getReleaseYear(dateStr?: string): string {

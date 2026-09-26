@@ -177,6 +177,37 @@
   border-radius: 14px;
   overflow: hidden;
   margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.hero-img-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.skeleton-game-icon {
+  color: var(--neon-cyan);
+  filter: drop-shadow(0 0 14px rgba(0, 240, 255, 0.7));
+  animation: pulseGhostIcon 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGhostIcon {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 0.95;
+    transform: scale(1.08);
+  }
 }
 
 .preview-image {
@@ -186,7 +217,12 @@
   object-fit: cover;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.loaded {
+    opacity: 1;
+  }
 }
 
 .spotlight-card:hover .preview-image {
@@ -285,4 +321,72 @@
 
 .full-width {
   width: 100%;
+}
+
+/* Hero Skeleton Styles */
+.skeleton-stat-val {
+  width: 48px;
+  height: 28px;
+  margin: 2px 0 6px 0;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-bar {
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-hero-title {
+  width: 65%;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.skeleton-rating-pill {
+  width: 54px;
+  height: 24px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-text {
+  width: 95%;
+  height: 16px;
+}
+
+.skeleton-text-short {
+  width: 70%;
+  height: 16px;
+}
+
+.skeleton-tag-pill {
+  width: 72px;
+  height: 24px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.skeleton-btn {
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.skeleton-spotlight {
+  pointer-events: none;
+  user-select: none;
+}
+
+.preview-media-wrapper.skeleton-shimmer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skeleton-icon-placeholder {
+  color: var(--neon-cyan);
+  filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.6));
+  animation: pulseGhostIcon 1.8s ease-in-out infinite alternate;
 }

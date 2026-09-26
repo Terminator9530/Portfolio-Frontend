@@ -297,3 +297,26 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* Skeleton Shimmer Glass Animation */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(0, 240, 255, 0.22) 30%,
+    rgba(168, 85, 247, 0.35) 50%,
+    rgba(0, 240, 255, 0.22) 70%,
+    rgba(255, 255, 255, 0.06) 100%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: skeletonWave 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+}
+
+@keyframes skeletonWave {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
